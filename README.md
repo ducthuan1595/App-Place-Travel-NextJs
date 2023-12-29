@@ -4,6 +4,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 -- create snapshot with rsc
 
+** Connect to prisma
+ - npx prisma init
+ - create database
+ - npx prisma db push
+
 First, run the development server:
 
 ```bash
