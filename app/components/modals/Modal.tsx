@@ -69,7 +69,7 @@ const Modal: React.FC<ModalProps> = ({
           } ${showModal ? "opacity-100" : "opacity-0"}`}
         >
           <div className="translate h-full lg:h-auto md:h-auto border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-            <div className="flex items-center p-6 rounded-t justify-center relative border-b-[1px]">
+            <div className="flex items-center p-4 rounded-t justify-center relative border-b-[1px]">
               <button
                 onClick={handleClose}
                 className="p-1 border-0 hover:opacity-70 transition absolute left-9"
@@ -83,7 +83,7 @@ const Modal: React.FC<ModalProps> = ({
             {/* FOOTER */}
             <div className="flex flex-col gap-2 p-6">
               <div className="flex flex-row items-center gap-4 w-full">
-                {secondaryAction && (
+                {secondaryAction && secondaryActionLabel && (
                   <Button
                     outline
                     disabled={disabled}
