@@ -3,12 +3,12 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
 import { toast } from 'react-hot-toast';
 
-import { safeUser } from '../types';
+import { SafeUser } from '../types';
 import useLoginModal from './useLoginModal';
 
 interface IUserFavorite {
   listingId: string;
-  currentUser?: safeUser | null;
+  currentUser?: SafeUser | null;
 }
 
 const useFavorite = ({

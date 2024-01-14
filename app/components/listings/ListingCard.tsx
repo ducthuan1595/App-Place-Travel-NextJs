@@ -5,20 +5,20 @@ import { useRouter } from "next/navigation";
 import {format} from 'date-fns';
 
 import { Listing, Reservation } from "@prisma/client";
-import { safeUser } from "@/app/types";
+import { SafeListing, SafeUser } from "@/app/types";
 import useCountries from "@/app/hooks/useCountry";
 import Image from "next/image";
 import HeartButton from "../HeartButton";
 import Button from "../Button";
 
 interface ListingCardProps {
-  data: Listing;
+  data: SafeListing;
   reservation?: Reservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
   actionLabel?: string;
   actionId?: string;
-  currentUser?: safeUser | null;
+  currentUser?: SafeUser | null;
 }
 
 const ListingCard: React.FC<ListingCardProps> = ({
