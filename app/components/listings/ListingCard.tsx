@@ -4,8 +4,7 @@ import { useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import {format} from 'date-fns';
 
-import { Listing, Reservation } from "@prisma/client";
-import { SafeListing, SafeUser } from "@/app/types";
+import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 import useCountries from "@/app/hooks/useCountry";
 import Image from "next/image";
 import HeartButton from "../HeartButton";
@@ -13,7 +12,7 @@ import Button from "../Button";
 
 interface ListingCardProps {
   data: SafeListing;
-  reservation?: Reservation;
+  reservation?: SafeReservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
   actionLabel?: string;
@@ -38,7 +37,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
   const handleCancel = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     if(disabled) return;
-
+    
     onAction?.(actionId);
 
   }, [onAction, disabled, actionId]);

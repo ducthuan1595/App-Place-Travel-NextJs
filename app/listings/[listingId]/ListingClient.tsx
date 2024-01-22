@@ -9,8 +9,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Range } from "react-date-range";
 
 import { categories } from '@/app/components/navbar/Categories';
-import { SafeListing, SafeUser } from '@/app/types';
-import { Reservation } from '@prisma/client';
+import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
 import ListingHead from '../ListingHead';
 import ListingInfo from '../ListingInfo';
 import useLoginModal from '@/app/hooks/useLoginModal';
@@ -24,7 +23,7 @@ const initalDateRange = {
 };
 
 interface ListingClientProps {
-  reservations?: Reservation[];
+  reservations?: SafeReservation[];
   listing: SafeListing & {
     user: SafeUser
   };
@@ -58,9 +57,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
 
   const onCreateReservation = useCallback(() => {
     if(!currentUser) return loginModal.onOpen();
-    
-    console.log(currentUser);
-    
+        
     setIsLoading(true);
     axios.post('/api/reservations', {
       totalPrice,
